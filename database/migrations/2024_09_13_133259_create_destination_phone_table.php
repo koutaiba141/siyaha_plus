@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('destination_phone', function (Blueprint $table) {
             $table->id();
+            $table->integer('branch_id');
+            $table->string('phone_number');
             $table->timestamps();
         });
     }
