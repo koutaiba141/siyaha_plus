@@ -8,6 +8,7 @@ import 'package:siyaha_plus_mobile/views/LoginPage.dart';
 import 'package:siyaha_plus_mobile/views/SuggesteProfilePage.dart';
 import 'package:siyaha_plus_mobile/views/SuggestedCommentPage.dart';
 import 'package:siyaha_plus_mobile/views/SuggestedLikePage.dart';
+import 'package:siyaha_plus_mobile/views/SuggestedUpdateInfoPage.dart';
 import 'package:siyaha_plus_mobile/views/UserMainPage.dart';
 import 'package:siyaha_plus_mobile/views/SuggestedInfoPage.dart';
 import 'package:siyaha_plus_mobile/views/TourismInfoPage.dart';
@@ -25,6 +26,10 @@ class AppPage {
         page: () => SuggestedProfilePage()),
     GetPage(name: AppRoute.SuggestedLikePage, page: () => SuggestedLikePage()),
     GetPage(
-        name: AppRoute.SuggestedCommentPage, page: () => SuggestedCommentPage())
+        name: AppRoute.SuggestedCommentPage,
+        page: () => SuggestedCommentPage()),
+    GetPage(
+        name: AppRoute.SuggestedUpdateInfoPage,
+        page: () => SuggestedUpdateInfoPage()),
   ];
 }

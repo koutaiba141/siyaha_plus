@@ -5,8 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:siyaha_plus_mobile/routes/AppRoute.dart';
 
-class SuggestedInfoPage extends StatelessWidget {
-  const SuggestedInfoPage({super.key});
+class SuggestedUpdateInfoPage extends StatelessWidget {
+  const SuggestedUpdateInfoPage({super.key});
   final double LabelFontSize = 15;
   final double LabelPadding = 20;
   final double SixedBoxHeight = 20;
@@ -15,7 +15,7 @@ class SuggestedInfoPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-            "Setting up profile",
+            "Updating profile",
             selectionColor: Colors.white,
           ),
           backgroundColor: Colors.blue,
@@ -123,6 +123,60 @@ class SuggestedInfoPage extends StatelessWidget {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter a company GPS location';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(
+                        height: SixedBoxHeight,
+                      ),
+                      // Facebook link
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Facebook link',
+                            labelStyle: TextStyle(fontSize: LabelFontSize),
+                            contentPadding: EdgeInsets.symmetric(
+                              vertical: LabelPadding,
+                            )),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a Facebook link';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(
+                        height: SixedBoxHeight,
+                      ),
+                      // Instagram link
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Instagram link',
+                            labelStyle: TextStyle(fontSize: LabelFontSize),
+                            contentPadding: EdgeInsets.symmetric(
+                              vertical: LabelPadding,
+                            )),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter an Instagram link';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(
+                        height: SixedBoxHeight,
+                      ),
+                      // Tiktok link
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Tiktok link',
+                            labelStyle: TextStyle(fontSize: LabelFontSize),
+                            contentPadding: EdgeInsets.symmetric(
+                              vertical: LabelPadding,
+                            )),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a Tiktok link';
                           }
                           return null;
                         },

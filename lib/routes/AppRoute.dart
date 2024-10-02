@@ -8,4 +8,5 @@ class AppRoute {
   static const String SuggestedProfilePage = '/SuggestedProfilePage';
   static const String SuggestedLikePage = '/SuggestedLikePage';
   static const String SuggestedCommentPage = '/SuggestedCommentPage';
+  static const String SuggestedUpdateInfoPage = '/SuggestedUpdateInfoPage';
 }
