@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
+import 'package:siyaha_plus_mobile/bindings/SuggestedInfoBinding.dart';
 import 'package:siyaha_plus_mobile/routes/AppRoute.dart';
 import 'package:siyaha_plus_mobile/views/LaunchPage.dart';
 import 'package:siyaha_plus_mobile/views/LoginBusinessPage.dart';
@@ -20,7 +21,10 @@ class AppPage {
     GetPage(name: AppRoute.LoginBusinessPage, page: () => LoginBusinessPage()),
     GetPage(name: AppRoute.UserMainPage, page: () => UserMainPage()),
     GetPage(name: AppRoute.TourismInfoPage, page: () => TourismInfoPage()),
-    GetPage(name: AppRoute.SuggestedInfoPage, page: () => SuggestedInfoPage()),
+    GetPage(
+        name: AppRoute.SuggestedInfoPage,
+        page: () => SuggestedInfoPage(),
+        binding: SuggestedInfoBinding()),
     GetPage(
         name: AppRoute.SuggestedProfilePage,
         page: () => SuggestedProfilePage()),

@@ -3,15 +3,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:siyaha_plus_mobile/controllers/SuggestedInfoController.dart';
 import 'package:siyaha_plus_mobile/routes/AppRoute.dart';
+import 'package:image_picker/image_picker.dart';
 
-class SuggestedInfoPage extends StatelessWidget {
+class SuggestedInfoPage extends GetView<SuggestedInfoController> {
   const SuggestedInfoPage({super.key});
   final double LabelFontSize = 15;
   final double LabelPadding = 20;
   final double SixedBoxHeight = 20;
   @override
   Widget build(BuildContext context) {
+    final SuggestedInfoController controller =
+        Get.put(SuggestedInfoController());
+
+    final ImagePicker picker = ImagePicker();
+
+    // Function to pick an image from the gallery
+    Future<void> pickImage() async {
+      final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+      if (image != null) {
+        controller.SuggestedProfile.value = await image.readAsBytes();
+      }
+    }
+
     return Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -40,13 +55,25 @@ class SuggestedInfoPage extends StatelessWidget {
                         height: SixedBoxHeight,
                       ),
                       // Profile picture
-                      ClipOval(
-                        child: SvgPicture.asset(
-                          'images/ProfileImage.svg',
-                          fit: BoxFit.cover,
-                          width: 100,
-                          height: 100,
-                        ),
+                      GestureDetector(
+                        onTap: pickImage,
+                        child: Obx(() {
+                          return ClipOval(
+                            child: controller.SuggestedProfile.value != null
+                                ? Image.memory(
+                                    controller.SuggestedProfile.value!,
+                                    fit: BoxFit.cover,
+                                    width: 100,
+                                    height: 100,
+                                  )
+                                : SvgPicture.asset(
+                                    'images/ProfileImage.svg',
+                                    fit: BoxFit.cover,
+                                    width: 100,
+                                    height: 100,
+                                  ),
+                          );
+                        }),
                       ),
                       // Company name
                       TextFormField(
@@ -61,6 +88,7 @@ class SuggestedInfoPage extends StatelessWidget {
                           }
                           return null;
                         },
+                        controller: controller.SuggestedName,
                       ),
                       SizedBox(
                         height: SixedBoxHeight,
@@ -88,7 +116,9 @@ class SuggestedInfoPage extends StatelessWidget {
                             child: Text(value),
                           );
                         }).toList(),
-                        onChanged: (newValue) {},
+                        onChanged: (newValue) {
+                          controller.SuggestedType.text = newValue!;
+                        },
                       ),
                       SizedBox(
                         height: SixedBoxHeight,
@@ -96,37 +126,37 @@ class SuggestedInfoPage extends StatelessWidget {
 
                       // Company number
                       TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Company phone number',
-                            labelStyle: TextStyle(fontSize: LabelFontSize),
-                            contentPadding: EdgeInsets.symmetric(
-                              vertical: LabelPadding,
-                            )),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter a company phone number';
-                          }
-                          return null;
-                        },
-                      ),
+                          decoration: InputDecoration(
+                              labelText: 'Company phone number',
+                              labelStyle: TextStyle(fontSize: LabelFontSize),
+                              contentPadding: EdgeInsets.symmetric(
+                                vertical: LabelPadding,
+                              )),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a company phone number';
+                            }
+                            return null;
+                          },
+                          controller: controller.SuggestedNumber),
                       SizedBox(
                         height: SixedBoxHeight,
                       ),
                       // Company GPS location
                       TextFormField(
-                        decoration: InputDecoration(
-                            labelText: 'Company GPS location',
-                            labelStyle: TextStyle(fontSize: LabelFontSize),
-                            contentPadding: EdgeInsets.symmetric(
-                              vertical: LabelPadding,
-                            )),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter a company GPS location';
-                          }
-                          return null;
-                        },
-                      ),
+                          decoration: InputDecoration(
+                              labelText: 'Company GPS location',
+                              labelStyle: TextStyle(fontSize: LabelFontSize),
+                              contentPadding: EdgeInsets.symmetric(
+                                vertical: LabelPadding,
+                              )),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a company GPS location';
+                            }
+                            return null;
+                          },
+                          controller: controller.SuggestedLocation),
                       SizedBox(
                         height: SixedBoxHeight,
                       ),
@@ -135,7 +165,7 @@ class SuggestedInfoPage extends StatelessWidget {
                           style: TextButton.styleFrom(
                               backgroundColor: Colors.blue,
                               foregroundColor: Colors.grey,
-                              minimumSize: Size.fromHeight(50)),
+                              minimumSize: const Size.fromHeight(50)),
                           onPressed: () {
                             Get.toNamed(AppRoute.SuggestedProfilePage);
                           },
