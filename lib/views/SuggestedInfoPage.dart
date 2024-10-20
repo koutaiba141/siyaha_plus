@@ -93,9 +93,25 @@ class SuggestedInfoPage extends GetView<SuggestedInfoController> {
                       SizedBox(
                         height: SixedBoxHeight,
                       ),
-                      SizedBox(
-                        height: SixedBoxHeight,
+                      //Company description
+                      TextFormField(
+                        decoration: InputDecoration(
+                            labelText: 'Company description',
+                            labelStyle: TextStyle(fontSize: LabelFontSize),
+                            contentPadding:
+                                EdgeInsets.symmetric(vertical: LabelPadding)),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a company description';
+                          }
+                          return null;
+                        },
+                        controller: controller.SuggestedDescription,
                       ),
+                      SizedBox(
+                        height: SixedBoxHeight * 2,
+                      ),
+
                       // Company type
                       DropdownButtonFormField<String>(
                         decoration: InputDecoration(
@@ -123,7 +139,6 @@ class SuggestedInfoPage extends GetView<SuggestedInfoController> {
                       SizedBox(
                         height: SixedBoxHeight,
                       ),
-
                       // Company number
                       TextFormField(
                           decoration: InputDecoration(
@@ -160,6 +175,60 @@ class SuggestedInfoPage extends GetView<SuggestedInfoController> {
                       SizedBox(
                         height: SixedBoxHeight,
                       ),
+                      // Facebook link
+                      TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Facebook link',
+                              labelStyle: TextStyle(fontSize: LabelFontSize),
+                              contentPadding: EdgeInsets.symmetric(
+                                vertical: LabelPadding,
+                              )),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a Facebook link';
+                            }
+                            return null;
+                          },
+                          controller: controller.SuggestedFacebook),
+                      SizedBox(
+                        height: SixedBoxHeight,
+                      ),
+                      // Instagram link
+                      TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Instagram link',
+                              labelStyle: TextStyle(fontSize: LabelFontSize),
+                              contentPadding: EdgeInsets.symmetric(
+                                vertical: LabelPadding,
+                              )),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter an Instagram link';
+                            }
+                            return null;
+                          },
+                          controller: controller.SuggestedInstagram),
+                      SizedBox(
+                        height: SixedBoxHeight,
+                      ),
+                      // Tiktok link
+                      TextFormField(
+                          decoration: InputDecoration(
+                              labelText: 'Tiktok link',
+                              labelStyle: TextStyle(fontSize: LabelFontSize),
+                              contentPadding: EdgeInsets.symmetric(
+                                vertical: LabelPadding,
+                              )),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a Tiktok link';
+                            }
+                            return null;
+                          },
+                          controller: controller.SuggestedTiktok),
+                      SizedBox(
+                        height: SixedBoxHeight,
+                      ),
                       // Submit button
                       TextButton(
                           style: TextButton.styleFrom(
@@ -167,6 +236,7 @@ class SuggestedInfoPage extends GetView<SuggestedInfoController> {
                               foregroundColor: Colors.grey,
                               minimumSize: const Size.fromHeight(50)),
                           onPressed: () {
+                            controller.SaveSuggestedInfo();
                             Get.toNamed(AppRoute.SuggestedProfilePage);
                           },
                           child: const Text(

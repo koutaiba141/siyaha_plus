@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        title: 'Flutter Demo',
+        title: 'Siyaha plus',
         theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue)),
         initialRoute: AppRoute.LaunchPage,
         getPages: AppPage.pages,
-        home: LaunchPage());
+        home: const LaunchPage());
   }
 }

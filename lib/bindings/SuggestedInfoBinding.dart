@@ -6,7 +6,6 @@ import 'package:siyaha_plus_mobile/controllers/SuggestedInfoController.dart';
 class SuggestedInfoBinding extends Bindings {
   @override
   void dependencies() {
-    // TODO: implement dependencies
     Get.lazyPut(() => SuggestedInfoController());
   }
 }

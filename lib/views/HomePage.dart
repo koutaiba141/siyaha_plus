@@ -6,6 +6,8 @@ import 'package:siyaha_plus_mobile/views/SuggestedPage.dart';
 import 'package:siyaha_plus_mobile/views/TravelTourPage.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

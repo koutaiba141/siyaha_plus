@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:siyaha_plus_mobile/controllers/SuggestedInfoController.dart';
 import 'package:siyaha_plus_mobile/routes/AppRoute.dart';
 
 class LoginBusinessPage extends StatefulWidget {
@@ -231,6 +232,9 @@ class _MyHomePageState extends State<LoginBusinessPage> {
                                   const SizedBox(width: 20),
                                   ElevatedButton(
                                       onPressed: () {
+                                        final controller =
+                                            Get.put(SuggestedInfoController());
+                                        controller.InsertSuggestedInfo();
                                         Get.toNamed(AppRoute.SuggestedInfoPage);
                                       },
                                       child: const Text("Other"))
