@@ -115,7 +115,7 @@ class LocalTourDetailsPage extends StatelessWidget {
                     width: 50,
                     height: 50,
                     fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) => Icon(
+                    errorBuilder: (context, error, stackTrace) => const Icon(
                       Icons.account_circle,
                       size: 50,
                       color: Colors.grey,

@@ -7,6 +7,8 @@ import 'package:siyaha_plus_mobile/views/TravelTourPage.dart';
 import 'package:siyaha_plus_mobile/mock_data/localTourMockData.dart'; // Import your mock data
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

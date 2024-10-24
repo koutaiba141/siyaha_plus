@@ -6,7 +6,7 @@ import '../models/travelTourModel.dart';
 class TravelTourDetailsPage extends StatelessWidget {
   final TravelTour tour;
 
-  const TravelTourDetailsPage({Key? key, required this.tour}) : super(key: key);
+  const TravelTourDetailsPage({super.key, required this.tour});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class TravelTourDetailsPage extends StatelessWidget {
           children: [
             Image.network(tour.imageUrl),
             const SizedBox(height: 8),
-            Text(tour.description, style: TextStyle(fontSize: 16)),
+            Text(tour.description, style: const TextStyle(fontSize: 16)),
             const SizedBox(height: 8),
             Text('Price: \$${tour.price.toStringAsFixed(2)}'),
             Text('Duration: ${tour.duration ?? "N/A"} days'),

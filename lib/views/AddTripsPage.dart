@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AddTripsPage extends StatefulWidget {
-  const AddTripsPage({Key? key}) : super(key: key);
+  const AddTripsPage({super.key});
 
   @override
   State<AddTripsPage> createState() => _AddTripsPageState();

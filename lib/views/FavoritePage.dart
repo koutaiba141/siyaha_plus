@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:siyaha_plus_mobile/controllers/FavoriteController.dart';
 
 class FavoritePage extends StatelessWidget {
+  const FavoritePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final FavoriteController favoriteController = Get.find();

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
  
 class StatisticsPage extends StatelessWidget {
+  const StatisticsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Statistics'),
+        title: const Text('Statistics'),
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'Statistics Page',
           style: TextStyle(fontSize: 24),

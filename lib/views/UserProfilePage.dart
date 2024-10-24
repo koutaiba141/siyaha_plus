@@ -65,7 +65,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'name': _nameController.text,
-          'phone': _phoneController.text,
+          'country': _countryController.text,
         }),
       );
 
@@ -193,9 +193,9 @@ class _UserProfilePageState extends State<UserProfilePage> {
                   _buildProfilePicture(),
                   const SizedBox(height: 24),
                   _buildTextField(labelText: 'Name', controller: _nameController),
-                  _buildTextField(labelText: 'Phone', controller: _phoneController),
+                  _buildTextField(labelText: 'Phone', controller: _phoneController, isEnabled: false),
                   _buildTextField(labelText: 'Email', controller: _emailController, isEnabled: false),
-                  _buildTextField(labelText: 'Country', controller: _countryController, isEnabled: false),
+                  _buildTextField(labelText: 'Country', controller: _countryController),
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: _isLoading ? null : _updateUserProfile,

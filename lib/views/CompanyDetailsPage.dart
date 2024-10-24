@@ -10,11 +10,11 @@ class CompanyDetailsPage extends StatelessWidget {
   final String description;
 
   const CompanyDetailsPage({
-    Key? key,
+    super.key,
     required this.companyName,
     required this.logoUrl,
     required this.description,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

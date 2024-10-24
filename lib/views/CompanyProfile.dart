@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CompanyProfilePage extends StatefulWidget {
+  const CompanyProfilePage({super.key});
+
   @override
   _CompanyProfilePageState createState() => _CompanyProfilePageState();
 }
@@ -22,7 +24,7 @@ class _CompanyProfilePageState extends State<CompanyProfilePage> {
     if (_formKey.currentState!.validate()) {
       // In a real-world application, you would send the updated profile data to the backend here.
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Profile updated successfully')),
+        const SnackBar(content: Text('Profile updated successfully')),
       );
     }
   }
@@ -31,10 +33,10 @@ class _CompanyProfilePageState extends State<CompanyProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Company Profile'),
+        title: const Text('Company Profile'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -50,7 +52,7 @@ class _CompanyProfilePageState extends State<CompanyProfilePage> {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               _buildProfileField(
                 label: 'Address',
                 controller: _companyAddressController,
@@ -61,7 +63,7 @@ class _CompanyProfilePageState extends State<CompanyProfilePage> {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               _buildProfileField(
                 label: 'Owner Name',
                 controller: _ownerNameController,
@@ -72,7 +74,7 @@ class _CompanyProfilePageState extends State<CompanyProfilePage> {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               _buildProfileField(
                 label: 'Contact Number',
                 controller: _contactNumberController,
@@ -84,11 +86,11 @@ class _CompanyProfilePageState extends State<CompanyProfilePage> {
                   return null;
                 },
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               Center(
                 child: ElevatedButton(
                   onPressed: _saveProfile,
-                  child: Text('Save Profile'),
+                  child: const Text('Save Profile'),
                 ),
               ),
             ],
@@ -110,14 +112,14 @@ class _CompanyProfilePageState extends State<CompanyProfilePage> {
       children: [
         Text(
           label,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         TextFormField(
           controller: controller,
           keyboardType: keyboardType,
           decoration: InputDecoration(
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
             labelText: label,
           ),
           validator: validator,

@@ -235,7 +235,7 @@ class SuggestedProfilePage extends StatelessWidget {
                           style: TextButton.styleFrom(
                               backgroundColor: Colors.blue,
                               foregroundColor: Colors.grey,
-                              minimumSize: Size.fromHeight(50)),
+                              minimumSize: const Size.fromHeight(50)),
                           onPressed: () {
                             Get.toNamed(AppRoute.SuggestedUpdateInfoPage);
                           },

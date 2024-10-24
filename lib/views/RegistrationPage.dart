@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 
 class RegistrationPage extends StatelessWidget {
+  const RegistrationPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Registrations'),
+        title: const Text('Registrations'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Registrations Coming Soon!', style: TextStyle(fontSize: 20)),
-            SizedBox(height: 20),
+            const Text('Registrations Coming Soon!', style: TextStyle(fontSize: 20)),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Go Back'),
+              child: const Text('Go Back'),
             ),
           ],
         ),

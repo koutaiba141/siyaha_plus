@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart'; // To handle SVG files
 import 'package:siyaha_plus_mobile/routes/appRoute.dart'; // Correct import
 
 class CompanyHomePage extends StatefulWidget {
+  const CompanyHomePage({super.key});
+
   @override
   _CompanyHomePageState createState() => _CompanyHomePageState();
 }
@@ -27,10 +29,20 @@ class _CompanyHomePageState extends State<CompanyHomePage> {
           },
         ),
         actions: [
-          IconButton(
+          PopupMenuButton<String>(
             icon: const Icon(Icons.menu, color: Colors.white),
-            onPressed: () {
-              // Handle menu navigation
+            onSelected: (value) {
+              if (value == 'Sign Out') {
+                _showSignOutDialog();
+              }
+            },
+            itemBuilder: (BuildContext context) {
+              return {'Sign Out'}.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(choice),
+                );
+              }).toList();
             },
           ),
         ],
@@ -42,21 +54,21 @@ class _CompanyHomePageState extends State<CompanyHomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               _buildMenuCard(
-                assetPath: 'assets/images/CompanyProfile.svg',
+                assetPath: 'images/CompanyProfile.svg',
                 text: 'Profile',
                 onTap: () => Get.toNamed(AppRoute.companyProfilePage),
               ),
               const SizedBox(height: 20),
 
               _buildMenuCard(
-                assetPath: 'assets/images/BusTrip.svg',
+                assetPath: 'images/BusTrip.svg',
                 text: 'Trips',
                 onTap: () => Get.toNamed(AppRoute.companyTripsPage),
               ),
               const SizedBox(height: 20),
 
               _buildMenuCard(
-                assetPath: 'assets/images/statistics.svg',
+                assetPath: 'images/statistics.svg',
                 text: 'Statistics',
                 onTap: () => Get.toNamed(AppRoute.statisticsPage),
               ),
@@ -101,7 +113,7 @@ class _CompanyHomePageState extends State<CompanyHomePage> {
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -126,5 +138,32 @@ class _CompanyHomePageState extends State<CompanyHomePage> {
         ),
       ),
     );
+  }
+
+  Future<void> _showSignOutDialog() async {
+    final shouldSignOut = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Sign Out'),
+          content: const Text('Are you sure you want to sign out?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: const Text('Sign Out'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (shouldSignOut == true) {
+      // Navigate to the login page and remove all previous routes
+      Get.offAllNamed(AppRoute.LoginPage);
+    }
   }
 }

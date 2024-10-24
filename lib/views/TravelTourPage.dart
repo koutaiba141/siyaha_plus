@@ -2,13 +2,13 @@
 
 import 'package:flutter/material.dart';
 import '../models/travelTourModel.dart';
-import 'package:siyaha_plus_mobile/mock_data/TravelTourMockData.dart'; // Import mock data
+// Import mock data
 import 'TravelTourDetailsPage.dart'; // Import the details page
 
 class TravelTourPage extends StatelessWidget {
   final List<TravelTour> travelTours;
 
-  const TravelTourPage({Key? key, required this.travelTours}) : super(key: key);
+  const TravelTourPage({super.key, required this.travelTours});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class TravelTourPage extends StatelessWidget {
                               const SizedBox(height: 4),
                               Text(tour.description),
                               const SizedBox(height: 4),
-                              Text('Price: \$${tour.price.toStringAsFixed(2)}', style: TextStyle(color: Colors.green)),
+                              Text('Price: \$${tour.price.toStringAsFixed(2)}', style: const TextStyle(color: Colors.green)),
                               if (tour.duration != null) 
                                 Text('Duration: ${tour.duration} days'),
                               Text('Location: ${tour.location}'),

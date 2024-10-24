@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CompanyTripsPage extends StatefulWidget {
+  const CompanyTripsPage({super.key});
+
   @override
   _CompanyTripsPageState createState() => _CompanyTripsPageState();
 }
@@ -36,10 +38,10 @@ class _CompanyTripsPageState extends State<CompanyTripsPage> with SingleTickerPr
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Company Trips'),
+        title: const Text('Company Trips'),
         bottom: TabBar(
           controller: _tabController,
-          tabs: [
+          tabs: const [
             Tab(text: 'Current Trips'),
             Tab(text: 'Past Trips'),
           ],
@@ -88,7 +90,7 @@ class _CompanyTripsPageState extends State<CompanyTripsPage> with SingleTickerPr
 class TripDetailsPage extends StatelessWidget {
   final Map<String, dynamic> trip;
 
-  TripDetailsPage({required this.trip});
+  const TripDetailsPage({super.key, required this.trip});
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +98,7 @@ class TripDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(trip['title']),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Trip details page'),
       ),
     );

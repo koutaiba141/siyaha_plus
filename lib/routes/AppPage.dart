@@ -24,31 +24,31 @@ import 'package:siyaha_plus_mobile/views/CompanyHomePage.dart';
 
 class AppPage {
   static final List<GetPage> pages = [
-    GetPage(name: AppRoute.LaunchPage, page: () => LaunchPage()),
-    GetPage(name: AppRoute.LoginPage, page: () => LoginPage()),
-    GetPage(name: AppRoute.LoginBusinessPage, page: () => LoginBusinessPage()),
+    GetPage(name: AppRoute.LaunchPage, page: () => const LaunchPage()),
+    GetPage(name: AppRoute.LoginPage, page: () => const LoginPage()),
+    GetPage(name: AppRoute.LoginBusinessPage, page: () => const LoginBusinessPage()),
         GetPage(name: AppRoute.CompanyHomePage, page: () => CompanyHomePage()),
 
-    GetPage(name: AppRoute.UserMainPage, page: () => UserMainPage()),
+    GetPage(name: AppRoute.UserMainPage, page: () => const UserMainPage()),
      GetPage(
         name: AppRoute.SuggestedInfoPage,
-        page: () => SuggestedInfoPage(),
+        page: () => const SuggestedInfoPage(),
         binding: SuggestedInfoBinding()),
     GetPage(
         name: AppRoute.SuggestedProfilePage,
-        page: () => SuggestedProfilePage()),
-    GetPage(name: AppRoute.SuggestedLikePage, page: () => SuggestedLikePage()),
+        page: () => const SuggestedProfilePage()),
+    GetPage(name: AppRoute.SuggestedLikePage, page: () => const SuggestedLikePage()),
     GetPage(
         name: AppRoute.SuggestedCommentPage,
-        page: () => SuggestedCommentPage()),
+        page: () => const SuggestedCommentPage()),
     GetPage(
         name: AppRoute.SuggestedUpdateInfoPage,
-        page: () => SuggestedUpdateInfoPage()),
+        page: () => const SuggestedUpdateInfoPage()),
 
         GetPage(name: AppRoute.companyProfilePage, page: () => CompanyProfilePage()),
     GetPage(name: AppRoute.companyTripsPage, page: () => CompanyTripsPage()),
     GetPage(name: AppRoute.statisticsPage, page: () => StatisticsPage()),
-    GetPage(name: AppRoute.addTripPage, page: () => AddTripsPage()),
+    GetPage(name: AppRoute.addTripPage, page: () => const AddTripsPage()),
     GetPage(
       name: AppRoute.LocalTourDetailsPage,
       page: () => LocalTourDetailsPage(

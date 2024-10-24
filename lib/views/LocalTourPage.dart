@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:siyaha_plus_mobile/models/localTourModel.dart';
 import 'package:siyaha_plus_mobile/views/LocalTourDetailsPage.dart';
-import 'package:siyaha_plus_mobile/mock_data/localTourMockData.dart';
 
 class LocalTourPage extends StatelessWidget {
   final List<LocalTour> localTours;
 
-  LocalTourPage({Key? key, required this.localTours}) : super(key: key) {
+  LocalTourPage({super.key, required this.localTours}) {
     // Debugging print statement
     print("LocalTourPage initialized with ${localTours.length} tours");
   }
@@ -71,7 +70,7 @@ class LocalTourPage extends StatelessWidget {
                                     const SizedBox(width: 4),
                                     Text(
                                       '\$${tour.price.toStringAsFixed(2)}', // Display the price
-                                      style: TextStyle(color: Colors.green, fontSize: 16),
+                                      style: const TextStyle(color: Colors.green, fontSize: 16),
                                     ),
                                   ],
                                 ),
