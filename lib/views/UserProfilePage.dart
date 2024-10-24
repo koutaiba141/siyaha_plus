@@ -160,13 +160,14 @@ class _UserProfilePageState extends State<UserProfilePage> {
     required TextEditingController controller,
     bool isEnabled = true,
   }) {
-    return ListTile(
-      title: TextField(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: TextField(
         controller: controller,
         enabled: isEnabled,
         decoration: InputDecoration(
           labelText: labelText,
-          labelStyle: const TextStyle(fontSize: 14, color: Colors.black),
+          labelStyle: const TextStyle(fontSize: 16, color: Colors.black),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: Colors.grey),
@@ -189,6 +190,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
           : SingleChildScrollView(
               padding: const EdgeInsets.all(16),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   _buildProfilePicture(),
                   const SizedBox(height: 24),
@@ -196,22 +198,23 @@ class _UserProfilePageState extends State<UserProfilePage> {
                   _buildTextField(labelText: 'Phone', controller: _phoneController, isEnabled: false),
                   _buildTextField(labelText: 'Email', controller: _emailController, isEnabled: false),
                   _buildTextField(labelText: 'Country', controller: _countryController),
-                  const SizedBox(height: 24),
+                  const Divider(height: 32, thickness: 1),
                   ElevatedButton(
                     onPressed: _isLoading ? null : _updateUserProfile,
                     style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 14),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      backgroundColor: Colors.blue,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     ),
                     child: const Text('Update Profile', style: TextStyle(fontSize: 16)),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: _logout,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.redAccent,
-                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 14),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     ),
                     child: const Text('Logout', style: TextStyle(fontSize: 16)),
                   ),
