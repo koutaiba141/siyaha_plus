@@ -73,6 +73,10 @@ flutter:
     - images/Instagram.svg
     - images/Youtube.svg
     - images/Tiktok.svg
+    - images/Apple.svg
+    - images/CompanyProfile.svg
+    - images/statistics.svg
+    - images/BusTrip.svg
 
 
   fonts:

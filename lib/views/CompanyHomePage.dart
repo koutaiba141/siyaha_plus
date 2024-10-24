@@ -42,21 +42,21 @@ class _CompanyHomePageState extends State<CompanyHomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               _buildMenuCard(
-                assetPath: 'assets/icons/CompanyProfile.svg',
+                assetPath: 'assets/images/CompanyProfile.svg',
                 text: 'Profile',
                 onTap: () => Get.toNamed(AppRoute.companyProfilePage),
               ),
               const SizedBox(height: 20),
 
               _buildMenuCard(
-                assetPath: 'assets/icons/BusTrip.svg',
+                assetPath: 'assets/images/BusTrip.svg',
                 text: 'Trips',
                 onTap: () => Get.toNamed(AppRoute.companyTripsPage),
               ),
               const SizedBox(height: 20),
 
               _buildMenuCard(
-                assetPath: 'assets/icons/statistics.svg',
+                assetPath: 'assets/images/statistics.svg',
                 text: 'Statistics',
                 onTap: () => Get.toNamed(AppRoute.statisticsPage),
               ),

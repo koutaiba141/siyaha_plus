@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:siyaha_plus_mobile/routes/AppRoute.dart';
-
+ 
 class LoginBusinessPage extends StatefulWidget {
   const LoginBusinessPage({super.key});
 
@@ -225,7 +225,7 @@ class _MyHomePageState extends State<LoginBusinessPage> {
                                 children: [
                                   ElevatedButton(
                                       onPressed: () {
-                                        Get.toNamed(AppRoute.TourismInfoPage);
+                                        Get.toNamed(AppRoute.CompanyHomePage);
                                       },
                                       child: const Text("Tourism")),
                                   const SizedBox(width: 20),
