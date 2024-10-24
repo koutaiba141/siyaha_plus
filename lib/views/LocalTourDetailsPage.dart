@@ -64,12 +64,54 @@ class LocalTourDetailsPage extends StatelessWidget {
               style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 16),
+            // Display Location
+            const Text(
+              'Location',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              tour.location,
+              style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
+            // Display Available Dates
+            const Text(
+              'Available Dates',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              tour.availableDates.join(', '),
+              style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
+            // Display Highlights
+            const Text(
+              'Highlights',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              tour.highlights.join(', '),
+              style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
             // Company profile section
             Row(
               children: [
                 ClipOval(
                   child: Image.network(
-                    tour.companyProfilePicUrl, // Dynamic profile picture
+                    tour.companyProfilePicUrl,
                     width: 50,
                     height: 50,
                     fit: BoxFit.cover,
@@ -89,7 +131,7 @@ class LocalTourDetailsPage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => CompanyDetailsPage(
                         companyName: tour.companyName,
                         logoUrl: tour.companyLogoUrl,
-                        description: tour.description, // Pass the description
+                        description: tour.description,
                       )),
                     );
                   },
@@ -106,20 +148,21 @@ class LocalTourDetailsPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             // Company logo
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.network(
-                tour.companyLogoUrl, // Dynamic company logo
-                width: double.infinity,
-                height: 100,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => Icon(
-                  Icons.image,
-                  size: 100,
-                  color: Colors.grey.shade300,
-                ),
-              ),
-            ),
+         // Company logo
+ClipRRect(
+  borderRadius: BorderRadius.circular(8),
+  child: Image.network(
+    tour.companyLogoUrl,
+    width: double.infinity,
+    height: 100,
+    fit: BoxFit.cover,
+    errorBuilder: (context, error, stackTrace) => Icon( // Corrected here
+      Icons.image,
+      size: 100,
+      color: Colors.grey.shade300,
+    ),
+  ),
+),
           ],
         ),
       ),

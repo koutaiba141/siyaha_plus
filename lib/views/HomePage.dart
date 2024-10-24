@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:siyaha_plus_mobile/views/LocalTourPage.dart';
 import 'package:siyaha_plus_mobile/views/SuggestedPage.dart';
 import 'package:siyaha_plus_mobile/views/TravelTourPage.dart';
+import 'package:siyaha_plus_mobile/mock_data/localTourMockData.dart'; // Import your mock data
 
 class HomePage extends StatelessWidget {
   @override
@@ -41,7 +42,9 @@ class HomePage extends StatelessWidget {
                       Icons.search,
                       color: Colors.grey,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      // You can implement search functionality here
+                    },
                   ),
                 ),
               ),
@@ -53,7 +56,9 @@ class HomePage extends StatelessWidget {
                 Icons.filter_alt,
                 color: Colors.white,
               ),
-              onPressed: () {},
+              onPressed: () {
+                // You can implement filter functionality here
+              },
             )
           ],
           bottom: const TabBar(
@@ -79,11 +84,11 @@ class HomePage extends StatelessWidget {
             unselectedLabelStyle: TextStyle(fontSize: 14),
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            TravelTourPage(),
-            LocalTourPage(localTours: []),
-            SuggestedPage(),
+            const TravelTourPage(travelTours: []), // Pass mock data here if available
+            LocalTourPage(localTours: mockLocalTours), // Pass mock data here
+            const SuggestedPage(),
           ],
         ),
       ),

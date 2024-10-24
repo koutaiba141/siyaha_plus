@@ -2,6 +2,7 @@
 
 import 'package:get/get.dart';
 import 'package:siyaha_plus_mobile/bindings/SuggestedInfoBinding.dart';
+import 'package:siyaha_plus_mobile/mock_data/localTourMockData.dart';
 import 'package:siyaha_plus_mobile/routes/AppRoute.dart';
 import 'package:siyaha_plus_mobile/views/AddTripsPage.dart';
 import 'package:siyaha_plus_mobile/views/CompanyProfile.dart';
@@ -54,7 +55,10 @@ class AppPage {
         tour: Get.arguments, // Receive tour object from arguments
       ),
     ),
-GetPage(name: AppRoute.LocalTourPage, page: () => LocalTourPage(localTours: [],)),
+GetPage(
+  name: AppRoute.LocalTourPage,
+  page: () => LocalTourPage(localTours: mockLocalTours), // Pass mock data here
+),
  GetPage(
       name: AppRoute.CompanyDetailsPage,
       page: () => CompanyDetailsPage(

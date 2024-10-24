@@ -1,109 +1,105 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:siyaha_plus_mobile/models/localTourModel.dart';
 import 'package:siyaha_plus_mobile/views/LocalTourDetailsPage.dart';
-import 'package:siyaha_plus_mobile/controllers/FavoriteController.dart';
+import 'package:siyaha_plus_mobile/mock_data/localTourMockData.dart';
 
 class LocalTourPage extends StatelessWidget {
   final List<LocalTour> localTours;
 
-  const LocalTourPage({Key? key, required this.localTours}) : super(key: key);
+  LocalTourPage({Key? key, required this.localTours}) : super(key: key) {
+    // Debugging print statement
+    print("LocalTourPage initialized with ${localTours.length} tours");
+  }
 
   @override
   Widget build(BuildContext context) {
-    final FavoriteController favoriteController = Get.find();
-
     return Scaffold(
+      
       body: localTours.isEmpty
-          ? Center(
-              child: Text('No tours available'),
-            )
-          : GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.7,
-              ),
-              itemCount: localTours.length,
+          ? const Center(child: Text('No tours available'))
+          : ListView.builder(
               padding: const EdgeInsets.all(8),
+              itemCount: localTours.length,
               itemBuilder: (context, index) {
                 final tour = localTours[index];
 
                 return GestureDetector(
                   onTap: () {
-                    Get.to(() => LocalTourDetailsPage(tour: tour));
+                    // Navigate to details page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LocalTourDetailsPage(tour: tour)),
+                    );
                   },
                   child: Card(
                     margin: const EdgeInsets.symmetric(vertical: 8),
-                    elevation: 4,
+                    elevation: 8, // Increased elevation for better shadow
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(16), // Rounded corners
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Row(
                       children: [
-                        Hero(
-                          tag: tour.imageUrl,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.network(
-                              tour.imageUrl,
-                              height: 120,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) => Icon(
-                                Icons.image,
-                                size: 80,
-                                color: Colors.grey.shade300,
-                              ),
+                        ClipRRect(
+                          borderRadius: const BorderRadius.horizontal(left: Radius.circular(16)),
+                          child: Image.network(
+                            tour.imageUrl,
+                            height: 120,
+                            width: 120,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) =>
+                                const Icon(Icons.image, size: 80, color: Colors.grey),
+                          ),
+                        ),
+                        const SizedBox(width: 12), // Increased spacing
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0), // Increased padding
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  tour.tourName, // Display the tour name
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18, // Increased font size
+                                  ),
+                                ),
+                                const SizedBox(height: 6),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.attach_money, color: Colors.green),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      '\$${tour.price.toStringAsFixed(2)}', // Display the price
+                                      style: TextStyle(color: Colors.green, fontSize: 16),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 6),
+                                Row(
+                                  children: [
+                                    const Icon(Icons.location_on, color: Colors.red),
+                                    const SizedBox(width: 4),
+                                    Text('Location: ${tour.location}'), // Display the location
+                                  ],
+                                ),
+                                const SizedBox(height: 6),
+                                Text(
+                                  'Company: ${tour.companyName}', // Display the company name
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            tour.companyName,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('\$${tour.price.toStringAsFixed(2)}'),
-                              Text('Duration: ${tour.duration} hours'),
-                            ],
-                          ),
-                        ),
-                        Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Obx(
-                            () => IconButton(
-                              icon: favoriteController.isFavorite(tour.companyName)
-                                  ? const Icon(Icons.favorite)
-                                  : const Icon(Icons.favorite_border),
-                              onPressed: () {
-                                if (!favoriteController.isFavorite(tour.companyName)) {
-                                  favoriteController.addFavorite(tour.companyName);
-                                  Get.snackbar(
-                                    'Added to Favorites',
-                                    '${tour.companyName} has been added to your favorites.',
-                                    snackPosition: SnackPosition.BOTTOM,
-                                  );
-                                } else {
-                                  favoriteController.removeFavorite(tour.companyName);
-                                  Get.snackbar(
-                                    'Removed from Favorites',
-                                    '${tour.companyName} has been removed from your favorites.',
-                                    snackPosition: SnackPosition.BOTTOM,
-                                  );
-                                }
-                              },
-                            ),
+                          child: CircleAvatar(
+                            backgroundImage: NetworkImage(tour.companyLogoUrl),
+                            radius: 24, // Increased radius for better visibility
                           ),
                         ),
                       ],

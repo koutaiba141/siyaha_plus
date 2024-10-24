@@ -1,7 +1,6 @@
-// models/localTourModel.dart
+// lib/models/travelTourModel.dart
 
-class LocalTour {
-  final String tourName; // New property for the tour name
+class TravelTour {
   final String companyName;
   final String description;
   final String imageUrl;
@@ -10,11 +9,9 @@ class LocalTour {
   final String location;
   final List<String> availableDates;
   final List<String> highlights;
-  final String companyLogoUrl; 
-  final String companyProfilePicUrl; 
+  final String companyLogoUrl; // Add company logo URL
 
-  LocalTour({
-    required this.tourName, // Include tourName in the constructor
+  TravelTour({
     required this.companyName,
     required this.description,
     required this.imageUrl,
@@ -23,7 +20,6 @@ class LocalTour {
     required this.location,
     required this.availableDates,
     required this.highlights,
-    required this.companyLogoUrl,
-    required this.companyProfilePicUrl,
+    required this.companyLogoUrl, // Add constructor parameter
   });
 }
