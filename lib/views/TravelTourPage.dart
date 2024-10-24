@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TravelTourPAge extends StatelessWidget {
-  const TravelTourPAge({super.key});
+class TravelTourPage extends StatelessWidget { // Corrected here
+  const TravelTourPage({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Local Tour Page")),
+      body: Center(child: Text("Travel Tour Page")), // Update text for clarity
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:siyaha_plus_mobile/bindings/SuggestedInfoBinding.dart';
 import 'package:siyaha_plus_mobile/routes/AppRoute.dart';
 import 'package:siyaha_plus_mobile/views/LaunchPage.dart';
+import 'package:siyaha_plus_mobile/views/LocalTourPage.dart';
 import 'package:siyaha_plus_mobile/views/LoginBusinessPage.dart';
 import 'package:siyaha_plus_mobile/views/LoginPage.dart';
 import 'package:siyaha_plus_mobile/views/SuggesteProfilePage.dart';
@@ -14,6 +15,7 @@ import 'package:siyaha_plus_mobile/views/UserMainPage.dart';
 import 'package:siyaha_plus_mobile/views/SuggestedInfoPage.dart';
 import 'package:siyaha_plus_mobile/views/TourismInfoPage.dart';
 import 'package:siyaha_plus_mobile/views/LocalTourDetailsPage.dart';
+import 'package:siyaha_plus_mobile/views/CompanyDetailsPage.dart';
 
 class AppPage {
   static final List<GetPage> pages = [
@@ -44,6 +46,14 @@ class AppPage {
         tour: Get.arguments, // Receive tour object from arguments
       ),
     ),
-
+GetPage(name: AppRoute.LocalTourPage, page: () => LocalTourPage(localTours: [],)),
+ GetPage(
+      name: AppRoute.CompanyDetailsPage,
+      page: () => CompanyDetailsPage(
+        companyName: Get.arguments['companyName'], // Pass company name
+        logoUrl: Get.arguments['logoUrl'], // Pass logo URL
+        description: Get.arguments['description'], // Pass company description
+      ),
+    ),
   ];
 }

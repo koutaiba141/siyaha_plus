@@ -15,4 +15,18 @@ class FavoriteController extends GetxController {
   void removeFavorite(String companyName) {
     favoriteCompanies.remove(companyName);
   }
+
+  // Method to check if a company is already in favorites
+  bool isFavorite(String companyName) {
+    return favoriteCompanies.contains(companyName);
+  }
+
+  // Method to toggle favorite status of a company
+  void toggleFavorite(String companyName) {
+    if (isFavorite(companyName)) {
+      removeFavorite(companyName);
+    } else {
+      addFavorite(companyName);
+    }
+  }
 }

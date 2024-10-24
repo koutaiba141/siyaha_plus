@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:siyaha_plus_mobile/models/localTourModel.dart';
+import 'package:siyaha_plus_mobile/views/CompanyDetailsPage.dart';
 
 class LocalTourDetailsPage extends StatelessWidget {
   final LocalTour tour;
@@ -61,6 +62,63 @@ class LocalTourDetailsPage extends StatelessWidget {
             Text(
               tour.description,
               style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
+            // Company profile section
+            Row(
+              children: [
+                ClipOval(
+                  child: Image.network(
+                    tour.companyProfilePicUrl, // Dynamic profile picture
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) => Icon(
+                      Icons.account_circle,
+                      size: 50,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                GestureDetector(
+                  onTap: () {
+                    // Navigate to Company Details Page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CompanyDetailsPage(
+                        companyName: tour.companyName,
+                        logoUrl: tour.companyLogoUrl,
+                        description: tour.description, // Pass the description
+                      )),
+                    );
+                  },
+                  child: Text(
+                    tour.companyName,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            // Company logo
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                tour.companyLogoUrl, // Dynamic company logo
+                width: double.infinity,
+                height: 100,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) => Icon(
+                  Icons.image,
+                  size: 100,
+                  color: Colors.grey.shade300,
+                ),
+              ),
             ),
           ],
         ),

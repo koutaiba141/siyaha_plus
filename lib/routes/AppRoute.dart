@@ -10,5 +10,7 @@ class AppRoute {
   static const String SuggestedCommentPage = '/SuggestedCommentPage';
   static const String SuggestedUpdateInfoPage = '/SuggestedUpdateInfoPage';
     static const String LocalTourDetailsPage = '/localTourDetails'; 
+static const String LocalTourPage = '/LocalTourPage';
+  static const String CompanyDetailsPage = '/CompanyDetailsPage'; // Add this line
 
 }
