@@ -25,9 +25,16 @@ class FavoritePage extends StatelessWidget {
         return ListView.builder(
           itemCount: favoriteController.favoriteCompanies.length,
           itemBuilder: (context, index) {
-            final companyName = favoriteController.favoriteCompanies[index];
+            final company = favoriteController.favoriteCompanies[index];
+            final companyName = company['name'];
+            final logoUrl = company['logo'];
 
             return ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(logoUrl!),
+                radius: 24, // Adjust the radius as needed
+                onBackgroundImageError: (error, stackTrace) => const Icon(Icons.error), // Handle image loading error
+              ),
               title: Text(companyName),
               trailing: IconButton(
                 icon: const Icon(Icons.delete, color: Colors.red),
