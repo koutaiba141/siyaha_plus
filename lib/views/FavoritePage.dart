@@ -32,19 +32,21 @@ class FavoritePage extends StatelessWidget {
             return ListTile(
               leading: CircleAvatar(
                 backgroundImage: NetworkImage(logoUrl!),
-                radius: 24, // Adjust the radius as needed
-                onBackgroundImageError: (error, stackTrace) => const Icon(Icons.error), // Handle image loading error
+                radius: 24,
+                onBackgroundImageError: (error, stackTrace) => const Icon(Icons.error),
               ),
-              title: Text(companyName),
+              title: Text(companyName ?? "Unknown Company"), // Handle nullable companyName
               trailing: IconButton(
                 icon: const Icon(Icons.delete, color: Colors.red),
                 onPressed: () {
-                  favoriteController.removeFavorite(companyName);
-                  Get.snackbar(
-                    'Removed from Favorites',
-                    '$companyName has been removed from your favorites.',
-                    snackPosition: SnackPosition.BOTTOM,
-                  );
+                  if (companyName != null) { // Ensure companyName is not null
+                    favoriteController.removeFavorite(companyName);
+                    Get.snackbar(
+                      'Removed from Favorites',
+                      '$companyName has been removed from your favorites.',
+                      snackPosition: SnackPosition.BOTTOM,
+                    );
+                  }
                 },
               ),
             );

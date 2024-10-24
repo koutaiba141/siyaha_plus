@@ -72,7 +72,7 @@ class CompanyDetailsPage extends StatelessWidget {
               // Add to favorites button
               ElevatedButton(
                 onPressed: () {
-                  favoriteController.addFavorite(companyName);
+                  favoriteController.addFavorite(companyName,logoUrl);
                   Get.snackbar(
                     'Added to Favorites',
                     '$companyName has been added to your favorites.',
