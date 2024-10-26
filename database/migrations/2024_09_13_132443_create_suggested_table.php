@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('destination_googlemaps', function (Blueprint $table) {
+        Schema::create('suggested', function (Blueprint $table) {
             $table->id();
-            $table->integer('branch_id');
-            $table->string('link');
+            $table-> string('suggested_name');
+            $table->integer('description');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('destination_googlemaps');
+        Schema::dropIfExists('suggested');
     }
 };

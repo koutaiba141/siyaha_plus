@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tour_locations', function (Blueprint $table) {
+        Schema::create('suggested_phone', function (Blueprint $table) {
             $table->id();
-            $table->integer('tourplan_id');
-            $table->string('location_name');
-            $table->string('googleMAps_coordinates');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->string('transportation_id');
-
+            $table->integer('suggested_id');
+            $table->string('phone_number');
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tour_locations');
+        Schema::dropIfExists('suggested_phone');
     }
 };
