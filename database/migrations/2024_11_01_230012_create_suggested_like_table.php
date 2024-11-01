@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('suggested_phone', function (Blueprint $table) {
+        Schema::create('SuggestedLike', function (Blueprint $table) {
             $table->id();
-            $table->integer('suggested_id');
-            $table->string('phone_number');
+            $table->integer('SuggestedId');
+            $table->integer('UserId');
+            $table->boolean('IsLike');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('suggested_phone');
+        Schema::dropIfExists('SuggestedLike');
     }
 };

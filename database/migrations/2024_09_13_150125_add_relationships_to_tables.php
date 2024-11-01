@@ -85,28 +85,16 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
 
-        // Update 'destination_branch' table
-        Schema::table('destination_branch', function (Blueprint $table) {
-            $table->unsignedBigInteger('destination_id')->change();
-            $table->foreign('destination_id')->references('id')->on('destination')->onDelete('cascade');
+        // Update 'SuggestedComment' table
+        Schema::table('SuggestedComment', function (Blueprint $table) {
+            $table->unsignedBigInteger('SuggestedId')->change();
+            $table->foreign('SuggestedId')->references('id')->on('Suggested')->onDelete('cascade');
         });
 
-        // Update 'destination_feedback' table
-        Schema::table('destination_feedback', function (Blueprint $table) {
-            $table->unsignedBigInteger('branch_id')->change();
-            $table->foreign('branch_id')->references('id')->on('destination_branch')->onDelete('cascade');
-        });
-
-        // Update 'destination_phone' table
-        Schema::table('destination_phone', function (Blueprint $table) {
-            $table->unsignedBigInteger('branch_id')->change();
-            $table->foreign('branch_id')->references('id')->on('destination_branch')->onDelete('cascade');
-        });
-
-        // Update 'destination_googlemaps' table
-        Schema::table('destination_googlemaps', function (Blueprint $table) {
-            $table->unsignedBigInteger('branch_id')->change();
-            $table->foreign('branch_id')->references('id')->on('destination_branch')->onDelete('cascade');
+        // Update 'SuggestedLike' table
+        Schema::table('SuggestedLike', function (Blueprint $table) {
+            $table->unsignedBigInteger('suggestedId')->change();
+            $table->foreign('SuggestedId')->references('id')->on('SuggestedLike')->onDelete('cascade');
         });
     }
 
@@ -165,20 +153,12 @@ return new class extends Migration
             $table->dropForeign(['company_id']);
         });
 
-        Schema::table('destination_branch', function (Blueprint $table) {
-            $table->dropForeign(['destination_id']);
+        Schema::table('suggested_like', function (Blueprint $table) {
+            $table->dropForeign(['suggested_id']);
         });
 
-        Schema::table('destination_feedback', function (Blueprint $table) {
-            $table->dropForeign(['branch_id']);
-        });
-
-        Schema::table('destination_phone', function (Blueprint $table) {
-            $table->dropForeign(['branch_id']);
-        });
-
-        Schema::table('destination_googlemaps', function (Blueprint $table) {
-            $table->dropForeign(['branch_id']);
+        Schema::table('SuggestedComment', function (Blueprint $table) {
+            $table->dropForeign(['SuggestedId']);
         });
     }
 };

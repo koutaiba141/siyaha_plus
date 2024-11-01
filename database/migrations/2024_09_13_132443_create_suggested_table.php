@@ -11,10 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('suggested', function (Blueprint $table) {
+        Schema::create('Suggested', function (Blueprint $table) {
             $table->id();
-            $table-> string('suggested_name');
-            $table->integer('description');
+            $table-> mediumBlob('ProfileImage');
+            $table-> string('SuggestedName');
+            $table->string('TotalLikes');
+            $table->string('TotalComment');
+            $table->string('Description');
+            $table->string('Email');
+            $table->string('Location');
+            $table->string('PhoneNumber');
+            $table->string('Facebook');
+            $table->string('Instagramm');
+            $table->string('Tiktok');
+            $table->string('Youtube');
             $table->timestamps();
         });
     }
@@ -24,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('suggested');
+        Schema::dropIfExists('Suggested');
     }
 };

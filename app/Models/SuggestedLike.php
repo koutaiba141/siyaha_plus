@@ -9,8 +9,10 @@ class DestinationPhone extends Model
 {
     use HasFactory;
 
-    public function branch()
+    protected $fillable= ["SuggestedId,UserId,IsLike"];
+
+    public function Like()
     {
-        return $this->belongsTo(DestinationBranch::class);
+        return $this->belongsTo(Suggested::class);
     }
 }
