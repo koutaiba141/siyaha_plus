@@ -9,7 +9,9 @@ class SuggestedComment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["SuggestedId,UserId,Comment"];
+    protected $table = 'suggestedcomment';
+
+    protected $fillable = ["SuggestedId","UserId","Comment"];
 
     public function Comment()
     {

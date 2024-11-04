@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -13,10 +14,10 @@ return new class extends Migration
     {
         Schema::create('Suggested', function (Blueprint $table) {
             $table->id();
-            $table-> mediumBlob('ProfileImage');
-            $table-> string('SuggestedName');
-            $table->string('TotalLikes');
-            $table->string('TotalComment');
+            $table->binary('ProfileImage');
+            $table->string('SuggestedName');
+            $table->integer('TotalLikes')->default(0);
+            $table->integer('TotalComment')->default(0);
             $table->string('Description');
             $table->string('Email');
             $table->string('Location');
@@ -27,7 +28,12 @@ return new class extends Migration
             $table->string('Youtube');
             $table->timestamps();
         });
+        // Alter the column to use MEDIUMBLOB
+        DB::statement('ALTER TABLE Suggested MODIFY ProfileImage MEDIUMBLOB');
+    
     }
+
+    
 
     /**
      * Reverse the migrations.

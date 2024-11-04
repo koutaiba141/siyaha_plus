@@ -85,17 +85,6 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
 
-        // Update 'SuggestedComment' table
-        Schema::table('SuggestedComment', function (Blueprint $table) {
-            $table->unsignedBigInteger('SuggestedId')->change();
-            $table->foreign('SuggestedId')->references('id')->on('Suggested')->onDelete('cascade');
-        });
-
-        // Update 'SuggestedLike' table
-        Schema::table('SuggestedLike', function (Blueprint $table) {
-            $table->unsignedBigInteger('suggestedId')->change();
-            $table->foreign('SuggestedId')->references('id')->on('SuggestedLike')->onDelete('cascade');
-        });
     }
 
     /**
@@ -151,14 +140,6 @@ return new class extends Migration
 
         Schema::table('company_owners', function (Blueprint $table) {
             $table->dropForeign(['company_id']);
-        });
-
-        Schema::table('suggested_like', function (Blueprint $table) {
-            $table->dropForeign(['suggested_id']);
-        });
-
-        Schema::table('SuggestedComment', function (Blueprint $table) {
-            $table->dropForeign(['SuggestedId']);
         });
     }
 };
