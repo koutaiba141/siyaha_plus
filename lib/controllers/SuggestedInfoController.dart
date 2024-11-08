@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:siyaha_plus_mobile/models/SuggestedInfoModel.dart';
 import 'package:siyaha_plus_mobile/core/network/DioClient.dart';
+import 'package:dio/dio.dart';
 
 class SuggestedInfoController extends GetxController {
   var SuggestedProfile = Rxn<Uint8List>();
@@ -20,8 +21,9 @@ class SuggestedInfoController extends GetxController {
   var isUpdating = false.obs;
   var id = 0.obs; // if updating, this will hold the record ID
 
-  // insert to the database function
+  // Insert to the database function
   void InsertSuggestedInfo() async {
+    // Construct the SuggestedInfoModel instance
     SuggestedInfoModel Suggested = SuggestedInfoModel(
         SuggestedProfile: SuggestedProfile.value ?? Uint8List(0),
         SuggestedName: SuggestedName.text,
@@ -33,13 +35,28 @@ class SuggestedInfoController extends GetxController {
         SuggestedInstagram: SuggestedInstagram.text,
         SuggestedTiktok: SuggestedTiktok.text);
 
+    // Convert the model to JSON
     String RequestBody = Suggested.SuggestedInfoToJson();
-    var post =
-        await DioClient().getInstance().post("/Suggested", data: RequestBody);
-    if (post.statusCode == 200) {
-      print(post.data);
-    } else {
-      print('Insert failed');
+    print('Request Body: $RequestBody'); // Debugging output
+
+    // Send POST request with headers
+    try {
+      var post = await DioClient().getInstance().post(
+            "/api/Suggested",
+            data: RequestBody,
+            options: Options(headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+            }),
+          );
+
+      if (post.statusCode == 200 || post.statusCode == 201) {
+        print('Insert successful: ${post.data}');
+      } else {
+        print('Insert failed: ${post.statusCode} - ${post.statusMessage}');
+      }
+    } catch (e) {
+      print('Error during insert: $e');
     }
   }
 
@@ -58,17 +75,28 @@ class SuggestedInfoController extends GetxController {
     );
 
     String RequestBody = Suggested.SuggestedInfoToJson();
-    var put = await DioClient()
-        .getInstance()
-        .put("/Suggested/$id", data: RequestBody);
-    if (put.statusCode == 200) {
-      print('Updated successfully');
-    } else {
-      print('Update failed');
+    print('Request Body: $RequestBody'); // Debugging output
+
+    try {
+      var put = await DioClient().getInstance().put(
+            "/api/Suggested/$id",
+            data: RequestBody,
+            options: Options(headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+            }),
+          );
+
+      if (put.statusCode == 200) {
+        print('Update successful: ${put.data}');
+      } else {
+        print('Update failed: ${put.statusCode} - ${put.statusMessage}');
+      }
+    } catch (e) {
+      print('Error during update: $e');
     }
   }
 
-  // This function will either insert or update based on the value of `isUpdating`
   void SaveSuggestedInfo() {
     if (isUpdating.value) {
       UpdateSuggestedInfo();

@@ -1,6 +1,5 @@
 // ignore_for_file: file_names, non_constant_identifier_names
 
-import 'dart:typed_data';
 import 'package:get/get.dart';
 import 'package:siyaha_plus_mobile/models/SuggestedProfileModel.dart';
 import 'package:siyaha_plus_mobile/core/network/DioClient.dart';

@@ -28,7 +28,7 @@ class SuggestedInfoModel {
 
   Map<String, dynamic> SuggestedInfoToMap() {
     return {
-      "SuggestedProfile": SuggestedProfile,
+      "SuggestedProfile": base64Encode(SuggestedProfile),
       "SuggestedName": SuggestedName,
       "SuggestedDescription": SuggestedDescription,
       "SuggestedType": SuggestedType,
