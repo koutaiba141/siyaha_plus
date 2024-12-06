@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 
 class SuggestedLikePage extends StatelessWidget {
   const SuggestedLikePage({super.key});
-  final double SizedBoxHeight = 10;
+
   @override
   Widget build(BuildContext context) {
+    final double SizedBoxHeight = MediaQuery.of(context).size.height * 0.01;
     return Scaffold(
         appBar: AppBar(
           title: const Text(

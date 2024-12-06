@@ -1,7 +1,6 @@
 // ignore_for_file: file_names, constant_identifier_names
 
 class AppRoute {
-  static const String LaunchPage = '/LaunchPage';
   static const String LoginPage = '/LoginPage';
   static const String LoginBusinessPage = '/LoginBusinessPage';
   static const String UserMainPage = '/UserMainPage';

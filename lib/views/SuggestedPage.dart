@@ -6,11 +6,12 @@ import 'package:siyaha_plus_mobile/routes/AppRoute.dart';
 
 class SuggestedPage extends StatelessWidget {
   const SuggestedPage({super.key});
-  final double TextPadding = 10;
-  final double SizedBoxHeight = 20;
 
   @override
   Widget build(BuildContext context) {
+    final ScreenHeight = MediaQuery.of(context).size.height;
+    final double TextPadding = ScreenHeight * 0.02;
+    final double SizedBoxHeight = ScreenHeight * 0.03;
     return Scaffold(
         body: Center(
       child: SafeArea(

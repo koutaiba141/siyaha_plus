@@ -9,9 +9,6 @@ import 'package:image_picker/image_picker.dart';
 
 class SuggestedInfoPage extends GetView<SuggestedInfoController> {
   const SuggestedInfoPage({super.key});
-  final double LabelFontSize = 15;
-  final double LabelPadding = 20;
-  final double SixedBoxHeight = 20;
   @override
   Widget build(BuildContext context) {
     final SuggestedInfoController controller =
@@ -26,6 +23,11 @@ class SuggestedInfoPage extends GetView<SuggestedInfoController> {
         controller.SuggestedProfile.value = await image.readAsBytes();
       }
     }
+
+    final ScreenHeight = MediaQuery.of(context).size.height;
+    final double LabelFontSize = ScreenHeight * 0.02;
+    final double LabelPadding = ScreenHeight * 0.03;
+    final double SixedBoxHeight = ScreenHeight * 0.03;
 
     return Scaffold(
         appBar: AppBar(

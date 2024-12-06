@@ -6,7 +6,6 @@ import 'package:siyaha_plus_mobile/bindings/SuggestedInfoBinding.dart';
 import 'package:siyaha_plus_mobile/bindings/SuggestedLikeBinding.dart';
 import 'package:siyaha_plus_mobile/bindings/SuggestedProfileBinding.dart';
 import 'package:siyaha_plus_mobile/routes/AppRoute.dart';
-import 'package:siyaha_plus_mobile/views/LaunchPage.dart';
 import 'package:siyaha_plus_mobile/views/LoginBusinessPage.dart';
 import 'package:siyaha_plus_mobile/views/LoginPage.dart';
 import 'package:siyaha_plus_mobile/views/SuggestedProfilePage.dart';
@@ -19,7 +18,6 @@ import 'package:siyaha_plus_mobile/views/SuggestedUserProfilePage.dart';
 
 class AppPage {
   static final List<GetPage> pages = [
-    GetPage(name: AppRoute.LaunchPage, page: () => const LaunchPage()),
     GetPage(name: AppRoute.LoginPage, page: () => const LoginPage()),
     GetPage(
         name: AppRoute.LoginBusinessPage,

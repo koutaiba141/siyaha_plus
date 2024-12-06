@@ -10,13 +10,15 @@ class SuggestedProfilePage extends StatelessWidget {
   const SuggestedProfilePage({super.key});
   @override
   Widget build(BuildContext context) {
-    const double SizedBoxHeight = 20;
-    const double SizedBoxWidth = 20;
-    const double SVGHeight = 40;
-    const double SVGWidth = 40;
-    const double IconSize = 40;
-    const double FontSize = 20;
-    const double BigIcon = 80;
+    final ScreenHeight = MediaQuery.of(context).size.height;
+    final ScreenWidth = MediaQuery.of(context).size.width;
+    final double SizedBoxHeight = ScreenHeight * 0.03;
+    final double SizedBoxWidth = ScreenWidth * 0.03;
+    final double SVGHeight = ScreenHeight * 0.07;
+    final double SVGWidth = ScreenWidth * 0.07;
+    final double IconSize = ScreenHeight * 0.07;
+    final double FontSize = ScreenWidth * 0.05;
+    final double BigIcon = ScreenWidth * 0.2;
     return Scaffold(
         body: SafeArea(
             child: Padding(
@@ -35,29 +37,29 @@ class SuggestedProfilePage extends StatelessWidget {
                           height: 150,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Suggested name
-                      const Text(
+                      Text(
                         "Suggested name",
                         style: TextStyle(
                             fontFamily: "Caveat",
                             color: Colors.blue,
-                            fontSize: 40),
+                            fontSize: FontSize * 2),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       //Description
-                      const Text(
+                      Text(
                         "We offer personalized travel experiences and unforgettable adventures, showcasing top destinations worldwide",
                         style: TextStyle(
                           color: Colors.blue,
-                          fontSize: 16,
+                          fontSize: FontSize,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Like and comment
@@ -72,7 +74,7 @@ class SuggestedProfilePage extends StatelessWidget {
                                   },
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.blue),
-                                  child: const FittedBox(
+                                  child: FittedBox(
                                       child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
@@ -87,7 +89,7 @@ class SuggestedProfilePage extends StatelessWidget {
                                               fontSize: FontSize))
                                     ],
                                   )))),
-                          const SizedBox(width: SizedBoxWidth),
+                          SizedBox(width: SizedBoxWidth),
                           // Comments
                           Expanded(
                               child: ElevatedButton(
@@ -96,7 +98,7 @@ class SuggestedProfilePage extends StatelessWidget {
                                   },
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.blue),
-                                  child: const FittedBox(
+                                  child: FittedBox(
                                       child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -113,11 +115,11 @@ class SuggestedProfilePage extends StatelessWidget {
                                       ]))))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Email
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
@@ -134,11 +136,11 @@ class SuggestedProfilePage extends StatelessWidget {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Phone number
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
@@ -155,7 +157,7 @@ class SuggestedProfilePage extends StatelessWidget {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Facebook
@@ -167,8 +169,8 @@ class SuggestedProfilePage extends StatelessWidget {
                             height: SVGHeight,
                             width: SVGWidth,
                           ),
-                          const SizedBox(width: SizedBoxWidth),
-                          const Expanded(
+                          SizedBox(width: SizedBoxWidth),
+                          Expanded(
                               child: Text("Facebook link",
                                   style: TextStyle(
                                     fontSize: FontSize,
@@ -176,7 +178,7 @@ class SuggestedProfilePage extends StatelessWidget {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Instagram
@@ -188,8 +190,8 @@ class SuggestedProfilePage extends StatelessWidget {
                             height: SVGHeight,
                             width: SVGWidth,
                           ),
-                          const SizedBox(width: SizedBoxWidth),
-                          const Expanded(
+                          SizedBox(width: SizedBoxWidth),
+                          Expanded(
                               child: Text("Instagram link",
                                   style: TextStyle(
                                     fontSize: FontSize,
@@ -197,7 +199,7 @@ class SuggestedProfilePage extends StatelessWidget {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Tiktok
@@ -209,8 +211,8 @@ class SuggestedProfilePage extends StatelessWidget {
                             height: SVGHeight,
                             width: SVGWidth,
                           ),
-                          const SizedBox(width: SizedBoxWidth),
-                          const Expanded(
+                          SizedBox(width: SizedBoxWidth),
+                          Expanded(
                               child: Text("Tiktok link",
                                   style: TextStyle(
                                     fontSize: FontSize,
@@ -218,7 +220,7 @@ class SuggestedProfilePage extends StatelessWidget {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Youtube
@@ -230,8 +232,8 @@ class SuggestedProfilePage extends StatelessWidget {
                             height: SVGHeight,
                             width: SVGWidth,
                           ),
-                          const SizedBox(width: SizedBoxWidth),
-                          const Expanded(
+                          SizedBox(width: SizedBoxWidth),
+                          Expanded(
                               child: Text("Youtube link",
                                   style: TextStyle(
                                     fontSize: FontSize,
@@ -239,7 +241,7 @@ class SuggestedProfilePage extends StatelessWidget {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
 
@@ -254,7 +256,7 @@ class SuggestedProfilePage extends StatelessWidget {
                             controller.UpdateSuggestedInfo();
                             Get.toNamed(AppRoute.SuggestedInfoPage);
                           },
-                          child: const Text(
+                          child: Text(
                             "Update information",
                             style: TextStyle(
                                 color: Colors.white, fontSize: FontSize),

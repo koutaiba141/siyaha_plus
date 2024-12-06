@@ -18,13 +18,15 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    const double SizedBoxHeight = 20;
-    const double SizedBoxWidth = 20;
-    const double SVGHeight = 40;
-    const double SVGWidth = 40;
-    const double IconSize = 40;
-    const double FontSize = 20;
-    const double BigIcon = 80;
+    final ScreenHeight = MediaQuery.of(context).size.height;
+    final ScreenWidth = MediaQuery.of(context).size.width;
+    final double SizedBoxHeight = ScreenHeight * 0.03;
+    final double SizedBoxWidth = ScreenWidth * 0.03;
+    final double SVGHeight = ScreenHeight * 0.07;
+    final double SVGWidth = ScreenWidth * 0.07;
+    final double IconSize = ScreenHeight * 0.07;
+    final double FontSize = ScreenWidth * 0.05;
+    final double BigIcon = ScreenWidth * 0.2;
     return Scaffold(
         body: SafeArea(
             child: Padding(
@@ -43,7 +45,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                           height: 150,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Suggested name
@@ -54,7 +56,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                             color: Colors.blue,
                             fontSize: 40),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       //Description
@@ -66,7 +68,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                         ),
                       ),
 
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Like and comment
@@ -81,7 +83,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                                   },
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.blue),
-                                  child: const FittedBox(
+                                  child: FittedBox(
                                       child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
@@ -96,7 +98,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                                               fontSize: FontSize))
                                     ],
                                   )))),
-                          const SizedBox(width: SizedBoxWidth),
+                          SizedBox(width: SizedBoxWidth),
                           // Comments
                           Expanded(
                               child: ElevatedButton(
@@ -105,7 +107,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                                   },
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.blue),
-                                  child: const FittedBox(
+                                  child: FittedBox(
                                       child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -122,11 +124,11 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                                       ]))))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Email
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
@@ -143,11 +145,11 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Phone number
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
@@ -164,7 +166,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Facebook
@@ -176,8 +178,8 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                             height: SVGHeight,
                             width: SVGWidth,
                           ),
-                          const SizedBox(width: SizedBoxWidth),
-                          const Expanded(
+                          SizedBox(width: SizedBoxWidth),
+                          Expanded(
                               child: Text("Facebook link",
                                   style: TextStyle(
                                     fontSize: FontSize,
@@ -185,7 +187,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Instagram
@@ -197,8 +199,8 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                             height: SVGHeight,
                             width: SVGWidth,
                           ),
-                          const SizedBox(width: SizedBoxWidth),
-                          const Expanded(
+                          SizedBox(width: SizedBoxWidth),
+                          Expanded(
                               child: Text("Instagram link",
                                   style: TextStyle(
                                     fontSize: FontSize,
@@ -206,7 +208,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Tiktok
@@ -218,8 +220,8 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                             height: SVGHeight,
                             width: SVGWidth,
                           ),
-                          const SizedBox(width: SizedBoxWidth),
-                          const Expanded(
+                          SizedBox(width: SizedBoxWidth),
+                          Expanded(
                               child: Text("Tiktok link",
                                   style: TextStyle(
                                     fontSize: FontSize,
@@ -227,7 +229,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       // Youtube
@@ -239,8 +241,8 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                             height: SVGHeight,
                             width: SVGWidth,
                           ),
-                          const SizedBox(width: SizedBoxWidth),
-                          const Expanded(
+                          SizedBox(width: SizedBoxWidth),
+                          Expanded(
                               child: Text("Youtube link",
                                   style: TextStyle(
                                     fontSize: FontSize,
@@ -248,7 +250,7 @@ class SuggestedUserProfilePageState extends State<SuggestedUserProfilePage> {
                                   )))
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: SizedBoxHeight,
                       ),
                       //comment and like

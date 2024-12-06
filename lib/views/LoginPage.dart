@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, non_constant_identifier_names
+// ignore_for_file: file_names, non_constant_identifier_names, constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,16 +13,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<LoginPage> {
-  final double TextButtonHeight = 30;
-  final double IconHeight = 30;
-  final double IconWidth = 30;
-  final double TextButtonBorder = 1;
-  final double TextButtonFontSize = 25;
-  final double IconTextSpace = 20;
-  final double SizedBoxHeight = 20;
-
   @override
   Widget build(BuildContext context) {
+    final ScreenHeight = MediaQuery.of(context).size.height;
+    final ScreenWidth = MediaQuery.of(context).size.width;
+    final double TextButtonHeight = ScreenHeight * 0.07;
+    final double IconHeight = TextButtonHeight * 0.5;
+    final double IconWidth = TextButtonHeight * 0.5;
+    const double TextButtonBorder = 5;
+    final double TextButtonFontSize = TextButtonHeight * 0.5;
+    final double IconTextSpace = ScreenWidth * 0.05;
+    final double SizedBoxHeight = ScreenHeight * 0.03;
     return Scaffold(
         body: Center(
             child: SafeArea(
@@ -53,7 +54,8 @@ class _MyHomePageState extends State<LoginPage> {
             style: TextButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.red,
-                side: BorderSide(color: Colors.red, width: TextButtonBorder),
+                side: const BorderSide(
+                    color: Colors.red, width: TextButtonBorder),
                 minimumSize: Size.fromHeight(TextButtonHeight)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +82,8 @@ class _MyHomePageState extends State<LoginPage> {
             style: TextButton.styleFrom(
               backgroundColor: Colors.white,
               foregroundColor: Colors.blue,
-              side: BorderSide(color: Colors.blue, width: TextButtonBorder),
+              side:
+                  const BorderSide(color: Colors.blue, width: TextButtonBorder),
               minimumSize: Size.fromHeight(TextButtonHeight),
             ),
             child: Row(
@@ -108,7 +111,8 @@ class _MyHomePageState extends State<LoginPage> {
             style: TextButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.green,
-                side: BorderSide(color: Colors.green, width: TextButtonBorder),
+                side: const BorderSide(
+                    color: Colors.green, width: TextButtonBorder),
                 minimumSize: Size.fromHeight(TextButtonHeight)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -135,7 +139,8 @@ class _MyHomePageState extends State<LoginPage> {
             style: TextButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.black,
-                side: BorderSide(color: Colors.black, width: TextButtonBorder),
+                side: const BorderSide(
+                    color: Colors.black, width: TextButtonBorder),
                 minimumSize: Size.fromHeight(TextButtonHeight)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -162,7 +167,8 @@ class _MyHomePageState extends State<LoginPage> {
             style: TextButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.yellow,
-                side: BorderSide(color: Colors.yellow, width: TextButtonBorder),
+                side: const BorderSide(
+                    color: Colors.yellow, width: TextButtonBorder),
                 minimumSize: Size.fromHeight(TextButtonHeight)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -211,8 +217,8 @@ class _MyHomePageState extends State<LoginPage> {
               style: TextButton.styleFrom(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.grey,
-                  side:
-                      BorderSide(color: Colors.black, width: TextButtonBorder),
+                  side: const BorderSide(
+                      color: Colors.black, width: TextButtonBorder),
                   minimumSize: Size.fromHeight(TextButtonHeight)),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

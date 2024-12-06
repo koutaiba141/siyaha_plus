@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, non_constant_identifier_names
+// ignore_for_file: file_names, non_constant_identifier_names, constant_identifier_names, no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,17 +14,18 @@ class LoginBusinessPage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<LoginBusinessPage> {
-  final double TextButtonHeight = 30;
-  final double IconHeight = 30;
-  final double IconWidth = 30;
-  final double TextButtonBorder = 1;
-  final double TextButtonFontSize = 25;
-  final double IconTextSpace = 20;
-  final double SizedBoxHeight = 20;
-  String _CompantType = "Tourism";
-
   @override
   Widget build(BuildContext context) {
+    final ScreenHeight = MediaQuery.of(context).size.height;
+    final ScreenWidth = MediaQuery.of(context).size.width;
+    final double TextButtonHeight = ScreenHeight * 0.07;
+    final double IconHeight = TextButtonHeight;
+    final double IconWidth = TextButtonHeight;
+    const double TextButtonBorder = 5;
+    final double TextButtonFontSize = TextButtonHeight * 0.5;
+    final double IconTextSpace = ScreenWidth * 0.05;
+    final double SizedBoxHeight = ScreenHeight * 0.03;
+    String _CompantType = "Tourism";
     return Scaffold(
         body: Center(
             child: SafeArea(
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<LoginBusinessPage> {
                                 style: TextButton.styleFrom(
                                     backgroundColor: Colors.white,
                                     foregroundColor: Colors.red,
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                         color: Colors.red,
                                         width: TextButtonBorder),
                                     minimumSize:
@@ -87,7 +88,7 @@ class _MyHomePageState extends State<LoginBusinessPage> {
                                 style: TextButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   foregroundColor: Colors.blue,
-                                  side: BorderSide(
+                                  side: const BorderSide(
                                       color: Colors.blue,
                                       width: TextButtonBorder),
                                   minimumSize:
@@ -119,7 +120,7 @@ class _MyHomePageState extends State<LoginBusinessPage> {
                                 style: TextButton.styleFrom(
                                     backgroundColor: Colors.white,
                                     foregroundColor: Colors.green,
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                         color: Colors.green,
                                         width: TextButtonBorder),
                                     minimumSize:
@@ -150,7 +151,7 @@ class _MyHomePageState extends State<LoginBusinessPage> {
                                 style: TextButton.styleFrom(
                                     backgroundColor: Colors.white,
                                     foregroundColor: Colors.black,
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                         color: Colors.black,
                                         width: TextButtonBorder),
                                     minimumSize:

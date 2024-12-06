@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class SuggestedCommentPage extends StatelessWidget {
   const SuggestedCommentPage({super.key});
-  final double SizedBoxWidth = 10;
   @override
   Widget build(BuildContext context) {
+    final double SizedBoxWidth = MediaQuery.of(context).size.width * 0.01;
     return Scaffold(
         appBar: AppBar(
           title: const Text(
