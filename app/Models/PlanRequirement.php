@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PlanRequirement extends Model
 {
     use HasFactory;
+    protected $table = 'plan_requirments';
 
     public function tourPlan()
     {

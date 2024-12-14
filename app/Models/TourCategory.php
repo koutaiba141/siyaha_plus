@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class TourCategory extends Model
 {
     use HasFactory;
+    protected $table = 'tour_catigories';
+    protected $fillable = [
+        'tour_id',
+        'catigory_id',
+       
+    ];
+
 
     public function category()
     {
